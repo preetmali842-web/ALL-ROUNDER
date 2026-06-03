@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#0f172a" />
+  <meta name="description" content="Study Companion Pro - A mobile-first productivity and learning app for students." />
+  <title>Study Companion Pro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <div class="brand-logo">SC</div>
+        <div>
+          <div class="brand-name">Study Companion Pro</div>
+          <div class="brand-tag">Learn. Track. Win.</div>
+        </div>
+      </div>
+
+      <nav class="side-nav">
+        <button class="nav-item active" data-view="dashboard">
+          <span>🏠</span><span>Dashboard</span>
+        </button>
+        <button class="nav-item" data-view="calculator">
+          <span>🧮</span><span>Calculator</span>
+        </button>
+        <button class="nav-item" data-view="timer">
+          <span>⏱️</span><span>Timer Center</span>
+        </button>
+        <button class="nav-item" data-view="goals">
+          <span>🎯</span><span>Daily Goals</span>
+        </button>
+        <button class="nav-item" data-view="tracker">
+          <span>📊</span><span>Study Tracker</span>
+        </button>
+        <button class="nav-item" data-view="notes">
+          <span>📝</span><span>Notes</span>
+        </button>
+        <button class="nav-item" data-view="motivation">
+          <span>✨</span><span>Motivation Hub</span>
+        </button>
+        <button class="nav-item" data-view="games">
+          <span>🎮</span><span>Game Center</span>
+        </button>
+        <button class="nav-item" data-view="settings">
+          <span>⚙️</span><span>Settings</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="mini-card">
+          <div class="mini-label">Study Streak</div>
+          <div class="mini-value" id="streakDisplay">0 days</div>
+        </div>
+        <div class="mini-card">
+          <div class="mini-label">Today</div>
+          <div class="mini-value" id="dateDisplay">--</div>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar glass">
+        <button class="icon-btn mobile-only" id="menuToggle" aria-label="Open menu">☰</button>
+        <div>
+          <h1 id="pageTitle">Dashboard</h1>
+          <p id="pageSubtitle">Your all-in-one study companion</p>
+        </div>
+        <div class="topbar-actions">
+          <div class="clock-pill" id="timeDisplay">--:--:--</div>
+          <button class="icon-btn" id="themeQuickToggle" aria-label="Toggle theme">🌓</button>
+        </div>
+      </header>
+
+      <section class="content-area">
+        <div id="view-dashboard" class="view active">
+          <div class="hero glass">
+            <div>
+              <h2>Welcome back, student! 👋</h2>
+              <p>Stay consistent, track progress, and make every study session count.</p>
+            </div>
+            <div class="hero-stats">
+              <div class="stat-card">
+                <span>🔥</span>
+                <strong id="streakCount">0</strong>
+                <small>Day Streak</small>
+              </div>
+              <div class="stat-card">
+                <span>⏳</span>
+                <strong id="studyHoursToday">0h</strong>
+                <small>Today</small>
+              </div>
+              <div class="stat-card">
+                <span>✅</span>
+                <strong id="goalsDone">0</strong>
+                <small>Goals Done</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid quick-grid">
+            <button class="quick-card glass" data-view="calculator"><span>🧮</span><strong>Calculator</strong><small>Basic + Scientific</small></button>
+            <button class="quick-card glass" data-view="timer"><span>⏱️</span><strong>Timer Center</strong><small>Stopwatch, Pomodoro</small></button>
+            <button class="quick-card glass" data-view="goals"><span>🎯</span><strong>Daily Goals</strong><small>Plan your day</small></button>
+            <button class="quick-card glass" data-view="notes"><span>📝</span><strong>Notes</strong><small>Save ideas fast</small></button>
+          </div>
+
+          <div class="glass section-card">
+            <div class="section-head">
+              <h3>Progress Overview</h3>
+              <span id="achievementCount">0 achievements</span>
+            </div>
+            <div class="progress-wrap">
+              <div class="progress-info">
+                <span>Daily Progress</span>
+                <span id="dailyProgressLabel">0%</span>
+              </div>
+              <div class="progress-bar"><div id="dailyProgressBar"></div></div>
+            </div>
+            <div class="progress-grid">
+              <div class="progress-mini">
+                <div>Physics</div><strong id="physicsPct">0%</strong>
+              </div>
+              <div class="progress-mini">
+                <div>Chemistry</div><strong id="chemistryPct">0%</strong>
+              </div>
+              <div class="progress-mini">
+                <div>Math</div><strong id="mathPct">0%</strong>
+              </div>
+              <div class="progress-mini">
+                <div>English</div><strong id="englishPct">0%</strong>
+              </div>
+            </div>
+          </div>
+
+          <div class="glass section-card">
+            <div class="section-head">
+              <h3>Achievements</h3>
+              <span>Unlock badges as you grow</span>
+            </div>
+            <div id="achievementList" class="badge-grid"></div>
+          </div>
+        </div>
+
+        <div id="view-calculator" class="view"></div>
+        <div id="view-timer" class="view"></div>
+        <div id="view-goals" class="view"></div>
+        <div id="view-tracker" class="view"></div>
+        <div id="view-notes" class="view"></div>
+        <div id="view-motivation" class="view"></div>
+        <div id="view-games" class="view"></div>
+        <div id="view-settings" class="view"></div>
+      </section>
+    </main>
+  </div>
+
+  <nav class="bottom-nav mobile-only">
+    <button data-view="dashboard" class="nav-item active">🏠<span>Home</span></button>
+    <button data-view="calculator" class="nav-item">🧮<span>Calc</span></button>
+    <button data-view="timer" class="nav-item">⏱️<span>Timer</span></button>
+    <button data-view="notes" class="nav-item">📝<span>Notes</span></button>
+    <button data-view="settings" class="nav-item">⚙️<span>More</span></button>
+  </nav>
+
+  <div class="overlay" id="overlay"></div>
+
+  <script src="settings.js"></script>
+  <script src="goals.js"></script>
+  <script src="notes.js"></script>
+  <script src="tracker.js"></script>
+  <script src="calculator.js"></script>
+  <script src="timer.js"></script>
+  <script src="games.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
